@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diccionario de Microeconomía</title>
+</head>
+<body>
+    <h1>Diccionario de Microeconomía</h1>
+
+    <form action="/agregar" method="post">
+        <label for="palabra">Ingresar palabra:</label>
+        <input type="text" name="palabra" id="palabra" required><br>
+        
+        <label for="significado">Ingresar significado:</label>
+        <input type="text" name="significado" id="significado" required><br>
+
+        <input type="submit" value="Agregar">
+    </form>
+
+    <form action="/eliminar" method="post">
+        <label for="eliminar_palabra">Ingresar palabra a eliminar:</label>
+        <input type="text" name="palabra" id="eliminar_palabra" required><br>
+
+        <input type="submit" value="Eliminar">
+    </form>
+
+    <form action="/modificar" method="post">
+        <label for="modificar_palabra">Ingresar palabra a modificar:</label>
+        <input type="text" name="palabra" id="modificar_palabra" required><br>
+        
+        <label for="nuevo_significado">Nuevo significado:</label>
+        <input type="text" name="nuevo_significado" id="nuevo_significado" required><br>
+
+        <input type="submit" value="Modificar">
+    </form>
+
+    <ul>
+        {% for palabra in palabras %}
+            <li>
+                {{ palabra['indice'] }}. {{ palabra['palabra'] }}: {{ palabra['significado'] }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
